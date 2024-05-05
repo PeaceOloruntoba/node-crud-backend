@@ -7,6 +7,10 @@ app.get('/', (req, res) => {
     res.send("Hello Dude ")
 })
 
+app.post('/employee', (req, res) => {
+    console.log(req.body)
+})
+
 
 mongoose.connect(
     "mongodb+srv://admin:qwert12345@firstcrud.xyz6edf.mongodb.net/firstcrudAPI?retryWrites=true&w=majority&appName=firstcrud"
