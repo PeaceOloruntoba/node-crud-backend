@@ -1,15 +1,31 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const Employee = require('./models/employeeModel')
 const app = express()
 
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send("Hello Dude ")
 })
 
-app.post('/employee', (req, res) => {
-    console.log(req.body)
-    res.send(req.body)
+
+app.get('/employees', async(req,res) => {
+    try {
+        const employees = await Product.find({})
+        res.status(200).json(employees)
+    } catch(error) {
+        res.status(500).json({message: error.message})
+    }
+})
+app.post('/employees', async(req, res) => {
+    try {
+        const employee = await Employee.create(req.body)
+        res.status(200).json(employee)
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).json({ message: error.message })
+    }
 })
 
 
