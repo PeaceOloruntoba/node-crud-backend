@@ -39,6 +39,19 @@ app.post('/employees', async(req, res) => {
     }
 })
 
+app.put('employees/:id', async (req, res) => {
+    try {
+        const {id} = req.params
+        const employee = await Employee.findByIdAndUpdate(id, req.body)
+        if (!employee) {
+            return res.status(404).json({message: `cannot find employee with ID ${id}`})
+        }
+        res.status(200).json(employee)
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+})
+
 
 mongoose.connect(
     "mongodb+srv://admin:qwert12345@firstcrud.xyz6edf.mongodb.net/firstcrudAPI?retryWrites=true&w=majority&appName=firstcrud"
