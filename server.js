@@ -55,7 +55,7 @@ app.put("employees/:id", async (req, res) => {
 
 mongoose
   .connect(
-    "mongodb+srv://admin:qwert12345@firstcrud.xyz6edf.mongodb.net/firstcrudAPI?retryWrites=true&w=majority&appName=firstcrud"
+    "mongodb+srv://peaceoloruntoba22:Aded@m0la$1@cluster0.yfios4b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
   )
   .then(() => {
     console.log("MongoDB Connected Successfully");
